@@ -1,0 +1,561 @@
+/* Reel Tidy support site
+   Brand colors are taken from the app icon artwork: cyan #1CA0CC, yellow #FEBD10.
+   The page is dark on purpose — the app UI is dark and the screenshots sit better on it. */
+
+:root {
+  --bg:          #0E1116;
+  --bg-raised:   #161A21;
+  --bg-sunken:   #0A0D11;
+  --line:        #232935;
+  --text:        #E8ECF2;
+  --text-dim:    #9AA6B5;
+  --cyan:        #1CA0CC;
+  --cyan-bright: #4FC0E4;
+  --yellow:      #FEBD10;
+  --wrap:        1080px;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+a { color: var(--cyan-bright); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--yellow); }
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+code, kbd, .path, .transform__value, .legend dt {
+  font-family: var(--mono);
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0; border: 0;
+  clip-path: inset(50%);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 12px; top: -60px;
+  z-index: 10;
+  padding: 10px 16px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  transition: top .15s ease;
+}
+.skip-link:focus { top: 12px; }
+
+/* ---------- header ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(14, 17, 22, .82);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 58px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+.brand__mark { width: 26px; height: auto; }
+
+.site-header nav { display: flex; gap: 22px; font-size: 15px; }
+.site-header nav a { color: var(--text-dim); text-decoration: none; }
+.site-header nav a:hover { color: var(--yellow); }
+
+/* ---------- hero ---------- */
+
+.hero {
+  padding: clamp(56px, 10vw, 104px) 0 clamp(40px, 7vw, 72px);
+  text-align: center;
+  background:
+    radial-gradient(closest-side at 50% 0%, rgba(28, 160, 204, .16), transparent 70%);
+}
+
+.hero__mark {
+  width: clamp(96px, 16vw, 132px);
+  margin: 0 auto clamp(20px, 4vw, 30px);
+}
+
+.hero__title {
+  margin: 0;
+  font-size: clamp(2.6rem, 8vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -.025em;
+  font-weight: 700;
+}
+
+.hero__tagline {
+  margin: 12px 0 0;
+  font-size: clamp(1.15rem, 3.4vw, 1.5rem);
+  color: var(--yellow);
+  font-weight: 500;
+}
+
+.hero__lede {
+  max-width: 34em;
+  margin: 22px auto 0;
+  color: var(--text-dim);
+  font-size: clamp(1rem, 2.4vw, 1.125rem);
+}
+
+.hero__meta {
+  margin: 20px 0 0;
+  font-size: .9rem;
+  color: var(--text-dim);
+}
+
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-block;
+  margin: 30px 0 0;
+  padding: 13px 26px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.btn--primary {
+  background: var(--cyan);
+  color: #04141B;
+}
+.btn--primary:hover {
+  background: var(--cyan-bright);
+  color: #04141B;
+}
+
+/* The app is not on the store yet — this state is deliberately not a link. */
+.btn--pending {
+  background: transparent;
+  border-color: var(--line);
+  color: var(--text-dim);
+  cursor: default;
+}
+
+/* ---------- sections ---------- */
+
+.section {
+  padding: clamp(48px, 8vw, 88px) 0;
+  border-top: 1px solid var(--line);
+}
+
+.section--rule { background: var(--bg-sunken); }
+.section--support { background: var(--bg-sunken); }
+
+.section h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.6rem, 4.6vw, 2.3rem);
+  letter-spacing: -.02em;
+  line-height: 1.15;
+}
+
+.section__lede {
+  max-width: 42em;
+  margin: 0 0 32px;
+  color: var(--text-dim);
+  font-size: clamp(1rem, 2.4vw, 1.1rem);
+}
+
+.section__note {
+  max-width: 42em;
+  margin: 32px 0 0;
+  color: var(--text-dim);
+}
+
+/* ---------- the naming rule ---------- */
+
+.path {
+  margin: 0 0 28px;
+  padding: 16px 18px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--text-dim);
+  font-size: .9rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.transform {
+  display: grid;
+  gap: 16px;
+  align-items: center;
+  grid-template-columns: 1fr auto 1fr;
+}
+
+.transform__side {
+  padding: 18px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-width: 0;
+}
+
+.transform__label {
+  margin: 0 0 8px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.transform__value {
+  margin: 0;
+  font-size: .95rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 2px;
+}
+
+.transform__value .dim { color: var(--text-dim); }
+.transform__value b { font-weight: 600; }
+
+.transform__arrow {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--cyan);
+}
+
+.k-date { color: var(--cyan-bright); }
+.k-time { color: var(--yellow); }
+.k-seq  { color: #7BD88F; }
+
+.legend {
+  margin: 30px 0 0;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.legend__item { margin: 0; }
+
+.legend dt {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.legend dd {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: .95rem;
+}
+
+/* ---------- screenshot carousel ----------
+   Bare app windows on transparency, each carrying its own drop shadow. Do not add
+   a border-radius or box-shadow here: the radius would clip the baked-in shadow and
+   a box-shadow would trace the transparent bounding box instead of the window. */
+
+/* Slides sit stacked in normal flow until carousel.js marks the carousel ready.
+   That way a blocked script still shows all four. */
+
+.carousel__slide + .carousel__slide { margin-top: clamp(48px, 8vw, 96px); }
+
+.carousel__slide {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: clamp(20px, 5vw, 60px);
+}
+
+.carousel__eyebrow {
+  margin: 0 0 10px;
+  font-size: .75rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--cyan-bright);
+}
+
+.carousel__text h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.5rem, 4vw, 2.1rem);
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+
+.carousel__sub {
+  margin: 0;
+  max-width: 32em;
+  color: var(--text-dim);
+  font-size: clamp(1rem, 2.4vw, 1.08rem);
+}
+
+.carousel__media img { width: 100%; }
+
+/* ---- enhanced: one slide at a time ---- */
+
+/* All slides share one grid cell, so the viewport is as tall as the tallest of
+   them and nothing shifts as they change. */
+.carousel.is-ready .carousel__viewport { display: grid; }
+
+.carousel.is-ready .carousel__slide {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;                    /* also keeps inactive slides out of tab order */
+  transform: translateY(8px);
+  transition: opacity .55s ease, transform .55s ease, visibility .55s;
+}
+
+.carousel.is-ready .carousel__slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* ---- controls ---- */
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: clamp(28px, 5vw, 44px);
+}
+
+.carousel__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--text);
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.carousel__arrow:hover {
+  border-color: var(--cyan);
+  color: var(--cyan-bright);
+}
+
+.carousel__dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 6px;
+}
+
+.carousel__dot {
+  position: relative;
+  width: 34px;
+  height: 4px;
+  padding: 0;
+  background: var(--line);
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background .2s ease;
+}
+
+/* Bigger invisible hit area — the visible bar is deliberately thin.
+   Do not add overflow:hidden to the dot; it would clip this. */
+.carousel__dot::before {
+  content: "";
+  position: absolute;
+  inset: -12px -4px;
+}
+
+.carousel__dot:hover { background: var(--text-dim); }
+.carousel__dot.is-active { background: rgba(28, 160, 204, .35); }
+
+/* Fills across one interval, so it is visible that the thing advances on its own.
+   The 5s duration below must match INTERVAL in carousel.js. */
+.carousel__dot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0;
+  background: var(--cyan);
+  border-radius: 2px;
+}
+
+.carousel__dot.is-active::after { width: 100%; }
+
+.carousel__dot.is-timing::after {
+  width: 0;
+  animation: dot-fill 5s linear forwards;
+}
+
+@keyframes dot-fill {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+/* ---------- feature cards ---------- */
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+}
+
+.card {
+  padding: 22px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  color: var(--yellow);
+}
+
+.card p {
+  margin: 0;
+  color: var(--text-dim);
+  font-size: .95rem;
+}
+
+.card code {
+  font-size: .88em;
+  color: var(--text);
+}
+
+/* ---------- support ---------- */
+
+.section--support h3 {
+  margin: 42px 0 12px;
+  font-size: 1.15rem;
+}
+
+.checklist {
+  max-width: 42em;
+  margin: 0;
+  padding-left: 1.3em;
+  color: var(--text-dim);
+}
+.checklist li { margin-bottom: 8px; }
+
+kbd {
+  display: inline-block;
+  padding: 1px 7px;
+  margin: 0 1px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  font-size: .85em;
+  color: var(--text);
+}
+
+.callout {
+  max-width: 46em;
+  margin: 30px 0 0;
+  padding: 16px 18px;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--yellow);
+  border-radius: 10px;
+  color: var(--text-dim);
+  font-size: .95rem;
+}
+.callout strong { color: var(--text); }
+
+/* ---------- privacy ---------- */
+
+.plain-list {
+  max-width: 46em;
+  margin: 0;
+  padding-left: 1.2em;
+  color: var(--text-dim);
+}
+.plain-list li { margin-bottom: 10px; }
+
+/* ---------- footer ---------- */
+
+.site-footer {
+  padding: 34px 0;
+  border-top: 1px solid var(--line);
+  color: var(--text-dim);
+  font-size: .9rem;
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  justify-content: space-between;
+}
+.site-footer p { margin: 0; }
+
+/* ---------- narrow screens ---------- */
+
+@media (max-width: 780px) {
+  /* Stack each slide, text above its window. */
+  .carousel__slide { grid-template-columns: 1fr; }
+  .carousel.is-ready .carousel__slide { align-content: start; }
+}
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+
+  .transform { grid-template-columns: 1fr; }
+  .transform__arrow { transform: rotate(90deg); justify-self: center; }
+
+  .site-header nav { gap: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

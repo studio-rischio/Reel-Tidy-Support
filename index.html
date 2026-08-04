@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Reel Tidy — Card to organized library</title>
+<meta name="description" content="Reel Tidy is a focused macOS importer for photographers and videographers. Plug in a card, click once, and your shoot lands in dated folders with newsroom-style filenames.">
+<link rel="icon" href="assets/ReelTidy.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="#main">
+      <img class="brand__mark" src="assets/ReelTidy.svg" alt="" width="32" height="40">
+      <span class="brand__name">Reel Tidy</span>
+    </a>
+    <nav aria-label="Primary">
+      <a href="#support">Support</a>
+      <a href="#privacy">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero__inner">
+      <img class="hero__mark" src="assets/ReelTidy.svg" alt="Reel Tidy app icon" width="132" height="165">
+      <h1 class="hero__title">Reel Tidy</h1>
+      <p class="hero__tagline">Card to organized library</p>
+      <p class="hero__lede">
+        Plug in a card, click once. Reel Tidy copies your shoot into dated folders with
+        newsroom-style filenames — then mirrors the whole library to your backup drive.
+      </p>
+
+      <!-- TODO: app is not published yet. When the App Store URL is confirmed, replace this
+           span with <a class="btn btn--primary" href="…">Download on the Mac App Store</a>. -->
+      <p class="btn btn--pending" role="note">Coming to the Mac App Store</p>
+
+      <p class="hero__meta">macOS 15.7 or later · Apple silicon and Intel · No account, no subscription</p>
+    </div>
+  </section>
+
+  <section class="section section--rule" aria-labelledby="naming">
+    <div class="wrap">
+      <h2 id="naming">One rule, applied to everything</h2>
+      <p class="section__lede">
+        Reel Tidy sorts by media type and capture date, then renames every file the same way:
+        date, time, and the camera's own frame number.
+      </p>
+
+      <p class="path">&lt;Library&gt;/&lt;Images|Raw|Videos&gt;/YYYY_MM_DD/YYYYMMDD_HHMMSS_&lt;seq&gt;.EXT</p>
+
+      <div class="transform">
+        <div class="transform__side">
+          <h3 class="transform__label">On the card</h3>
+          <p class="transform__value"><span class="dim">DCIM/111_FUJI/</span>DSCF0001.JPG</p>
+        </div>
+        <p class="transform__arrow" aria-hidden="true">→</p>
+        <div class="transform__side">
+          <h3 class="transform__label">In your library</h3>
+          <p class="transform__value"><span class="dim">Images/2026_01_31/</span><b class="k-date">20260131</b>_<b class="k-time">153045</b>_<b class="k-seq">0001</b>.JPG</p>
+        </div>
+      </div>
+
+      <dl class="legend">
+        <div class="legend__item">
+          <dt class="k-date">20260131</dt>
+          <dd>Capture date, read from the file's own metadata.</dd>
+        </div>
+        <div class="legend__item">
+          <dt class="k-time">153045</dt>
+          <dd>Capture time, in the camera's local timezone — a frame shot at 23:30 in Tokyo files under the Tokyo day.</dd>
+        </div>
+        <div class="legend__item">
+          <dt class="k-seq">0001</dt>
+          <dd>The camera's own frame number, preserved verbatim. The number on the back of the camera is the number in the filename.</dd>
+        </div>
+      </dl>
+
+      <p class="section__note">
+        Plain folders and plain filenames. No catalog, no database, nothing that needs
+        Reel Tidy installed to read your own work later.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="shots">
+    <h2 id="shots" class="visually-hidden">A look at Reel Tidy</h2>
+    <div class="wrap">
+
+      <!-- Without JS this stays a plain stacked list of all four; carousel.js adds
+           the .is-ready class, which switches it to one-at-a-time and shows controls. -->
+      <div class="carousel" data-carousel role="region"
+           aria-roledescription="carousel" aria-label="A look at Reel Tidy">
+
+        <div class="carousel__viewport" data-carousel-track id="tour-slides">
+
+          <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="1 of 4">
+            <div class="carousel__text">
+              <p class="carousel__eyebrow">Import</p>
+              <h3>2,686 files. One click.</h3>
+              <p class="carousel__sub">Live speed and an honest ETA. Optional compression runs alongside the copy, so a second pass over the shoot costs you nothing.</p>
+            </div>
+            <div class="carousel__media">
+              <img src="assets/screenshots/import-progress.png" width="1200" height="982"
+                   alt="An import in progress. The window title reads &quot;Reel Tidy — Importing 42 of 2686&quot;. Each JPEG is listed beside the dated path it is being copied to, with a progress bar reporting 426.5 MB/s and about 2 minutes 26 seconds left, and a second bar showing compression running in parallel.">
+            </div>
+          </div>
+
+          <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="2 of 4">
+            <div class="carousel__text">
+              <p class="carousel__eyebrow">Your library</p>
+              <h3>Finder Friendly Results</h3>
+              <p class="carousel__sub">Images, Raw, and Videos, split by capture date. Plain folders any app can read — and that you can still read in ten years without us.</p>
+            </div>
+            <div class="carousel__media">
+              <img src="assets/screenshots/finder-library.png" width="1200" height="1094" loading="lazy"
+                   alt="A Finder window showing the resulting library: top-level Videos and Images folders, with Images expanded into date folders such as 2026_04_04 and 2026_03_21, each holding files named like 20260321_112143_07043.JPG.">
+            </div>
+          </div>
+
+          <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="3 of 4">
+            <div class="carousel__text">
+              <p class="carousel__eyebrow">Sources</p>
+              <h3>Any Card Any Drive</h3>
+              <p class="carousel__sub">SD, CFexpress, USB, or any folder on disk. You choose the source, Reel Tidy scans it and shows you the plan before it writes anything.</p>
+            </div>
+            <div class="carousel__media">
+              <img src="assets/screenshots/source-picker.png" width="1200" height="1096" loading="lazy"
+                   alt="The source picker open, listing connected external volumes alongside options to select any folder or browse all mounted volumes.">
+            </div>
+          </div>
+
+          <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="4 of 4">
+            <div class="carousel__text">
+              <p class="carousel__eyebrow">Backup</p>
+              <h3>Backing Up Simplified</h3>
+              <p class="carousel__sub">Mirror the library to another drive. No backup software, no hassle — and every re-run skips what is already there.</p>
+            </div>
+            <div class="carousel__media">
+              <img src="assets/screenshots/backup-plan.png" width="1200" height="1096" loading="lazy"
+                   alt="The Backup tab midway through a run, backing up 114,758 of 122,415 files at 137 MB/s. A counter shows 12,161 files still to copy against 110,254 already synced from previous runs.">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="carousel__controls" data-carousel-controls hidden>
+          <button type="button" class="carousel__arrow" data-carousel-prev
+                  aria-controls="tour-slides" aria-label="Previous slide">
+            <span aria-hidden="true">&#8249;</span>
+          </button>
+
+          <div class="carousel__dots" data-carousel-dots></div>
+
+          <button type="button" class="carousel__arrow" data-carousel-next
+                  aria-controls="tour-slides" aria-label="Next slide">
+            <span aria-hidden="true">&#8250;</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="features">
+    <div class="wrap">
+      <h2 id="features">What it does</h2>
+      <ul class="cards">
+        <li class="card">
+          <h3>Knows your cards</h3>
+          <p>Recognizes cards from Sony, Canon, Nikon, Fujifilm, Ricoh, Panasonic, Olympus, GoPro, DJI, and Insta360, and reads capture time from photo and video metadata alike.</p>
+        </li>
+        <li class="card">
+          <h3>See the plan first</h3>
+          <p>The full import is listed before a single byte is written, with type filters and a “show only new” toggle. A pre-flight check reports the exact shortfall if the destination is too small.</p>
+        </li>
+        <li class="card">
+          <h3>It never deletes</h3>
+          <p>Reel Tidy only ever copies. Nothing is removed from your card, and collisions are yours to resolve — skip, rename, overwrite, or decide each time.</p>
+        </li>
+        <li class="card">
+          <h3>Crash-safe by design</h3>
+          <p>Every file is written under a temporary name and moved into place only once it is complete. Power loss or a force-quit can never leave a half-written file at a real filename.</p>
+        </li>
+        <li class="card">
+          <h3>Two bodies, no collisions</h3>
+          <p>When two cameras produce the same filename in the same second, the camera serial disambiguates them. Both frames survive.</p>
+        </li>
+        <li class="card">
+          <h3>Camera-local time</h3>
+          <p>Files are dated by the camera's own timezone, so a frame shot at 23:30 in Tokyo lands under the Tokyo day no matter where you import it.</p>
+        </li>
+        <li class="card">
+          <h3>Optional compressed copies</h3>
+          <p>Write smaller JPEG or HEIC versions into a parallel <code>Compressed/</code> tree as you import, and backfill shoots you imported before you turned it on.</p>
+        </li>
+        <li class="card">
+          <h3>Built for long jobs</h3>
+          <p>Progress in the Dock and the window title, a completion chime, auto-eject when the card is done, and your Mac kept awake until it is.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--support" id="support" aria-labelledby="support-h">
+    <div class="wrap">
+      <h2 id="support-h">Support</h2>
+      <p class="section__lede">
+        Bug reports and feature requests go to the issue tracker on GitHub. It is the fastest
+        way to reach us, and it keeps fixes visible to everyone.
+      </p>
+
+      <p>
+        <a class="btn btn--primary" href="https://github.com/studio-rischio/Reel-Tidy-Support/issues">
+          Open an issue on GitHub
+        </a>
+      </p>
+
+      <h3>What to include</h3>
+      <ol class="checklist">
+        <li>Your macOS version and Mac model.</li>
+        <li>Your Reel Tidy version, shown in the About window.</li>
+        <li>The camera and card type involved.</li>
+        <li>What you expected to happen, and what happened instead.</li>
+        <li>A debug log — press <kbd>⌥</kbd><kbd>⌘</kbd><kbd>L</kbd> to open the Debug Log window, then use its save button.</li>
+      </ol>
+
+      <p class="callout">
+        <strong>GitHub issues are public.</strong> Anyone can read what you post. Debug logs can
+        contain file paths and volume names, so give yours a skim before you attach it, and leave
+        out anything personal.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" id="privacy" aria-labelledby="privacy-h">
+    <div class="wrap">
+      <h2 id="privacy-h">Privacy</h2>
+      <p class="section__lede">
+        Reel Tidy collects nothing. That is not a policy choice layered on afterwards — there is
+        no code in the app capable of collecting anything.
+      </p>
+      <ul class="plain-list">
+        <li>No networking code of any kind. No analytics, no telemetry, no crash reporting, no third-party SDKs.</li>
+        <li>No account, no login, no cloud service.</li>
+        <li>The app is sandboxed. It can only reach folders you pick yourself in the system file picker, and those grants are remembered locally on your Mac.</li>
+        <li>Your photos and video never leave your own drives. Reel Tidy copies between two places you chose.</li>
+        <li>The only outbound link anywhere in the app is the About window's link to our studio site, which opens in your browser.</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <p>Reel Tidy is made by <a href="https://rischio.studio/">Studio Rischio</a>.</p>
+    <p><a href="https://github.com/studio-rischio/Reel-Tidy-Support/issues">Support</a> · <a href="#privacy">Privacy</a></p>
+  </div>
+</footer>
+
+<script src="carousel.js"></script>
+</body>
+</html>
