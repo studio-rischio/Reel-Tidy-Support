@@ -79,9 +79,31 @@
         </div>
         <div class="legend__item">
           <dt class="k-seq">0001</dt>
-          <dd>The camera's own frame number, preserved verbatim. The number on the back of the camera is the number in the filename.</dd>
+          <dd>The camera's own frame number, preserved verbatim. The number on the back of the camera is the number in the filename — and it is what keeps a burst in order.</dd>
         </div>
       </dl>
+
+      <div class="insight">
+        <h3>Bursts stay in the order you shot them</h3>
+        <p>
+          Capture time is recorded only down to the second. Shoot a burst at ten frames a
+          second and all ten files carry the same timestamp — so anything sorting purely by
+          capture time is free to hand them back in any order at all. Reviewing a sequence
+          becomes a puzzle: the frame where the expression lands can end up before the one
+          that set it up.
+        </p>
+        <p>
+          Reel Tidy appends the camera's own frame counter, which never repeats and only
+          ever climbs. A plain sort by name — what Finder does by default, and what almost
+          every other app falls back on — is the order you actually shot in.
+        </p>
+        <ul class="burst" aria-label="Three frames captured in the same second">
+          <li><span class="dim">20260131_153045_</span><b class="k-seq">0001</b>.JPG</li>
+          <li><span class="dim">20260131_153045_</span><b class="k-seq">0002</b>.JPG</li>
+          <li><span class="dim">20260131_153045_</span><b class="k-seq">0003</b>.JPG</li>
+        </ul>
+        <p class="insight__tail">Same second, three frames, never ambiguous.</p>
+      </div>
 
       <p class="section__note">
         Plain folders and plain filenames. No catalog, no database, nothing that needs
@@ -215,12 +237,16 @@
       <h2 id="support-h">Support</h2>
       <p class="section__lede">
         Bug reports and feature requests go to the issue tracker on GitHub. It is the fastest
-        way to reach us, and it keeps fixes visible to everyone.
+        way to reach us, and it keeps fixes visible to everyone. If you would rather not post
+        in public, or you don't have a GitHub account, email works just as well.
       </p>
 
-      <p>
+      <p class="btn-row">
         <a class="btn btn--primary" href="https://github.com/studio-rischio/Reel-Tidy-Support/issues">
           Open an issue on GitHub
+        </a>
+        <a class="btn btn--ghost" href="mailto:james@rischio.studio?subject=Reel%20Tidy%20support">
+          Email james@rischio.studio
         </a>
       </p>
 
@@ -236,7 +262,9 @@
       <p class="callout">
         <strong>GitHub issues are public.</strong> Anyone can read what you post. Debug logs can
         contain file paths and volume names, so give yours a skim before you attach it, and leave
-        out anything personal.
+        out anything personal. If a log would reveal something you'd rather keep private, send it
+        to <a href="mailto:james@rischio.studio?subject=Reel%20Tidy%20support">james@rischio.studio</a>
+        instead.
       </p>
     </div>
   </section>
@@ -264,7 +292,7 @@
 <footer class="site-footer">
   <div class="wrap site-footer__inner">
     <p>Reel Tidy is made by <a href="https://rischio.studio/">Studio Rischio</a>.</p>
-    <p><a href="https://github.com/studio-rischio/Reel-Tidy-Support/issues">Support</a> · <a href="privacy.html">Privacy</a></p>
+    <p><a href="#support">Support</a> · <a href="mailto:james@rischio.studio?subject=Reel%20Tidy%20support">james@rischio.studio</a> · <a href="privacy.html">Privacy</a></p>
   </div>
 </footer>
 
