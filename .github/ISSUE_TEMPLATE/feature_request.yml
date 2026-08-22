@@ -1,0 +1,46 @@
+name: Feature request
+description: Suggest something Reel Tidy should do
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Reel Tidy is deliberately a focused importer rather than a catalog or an editor,
+        so not everything belongs in it — but suggestions are genuinely welcome, and
+        knowing how you shoot helps as much as the request itself.
+
+        **This issue will be public.**
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe the situation rather than the solution — the underlying problem is the useful part.
+      placeholder: |
+        I shoot two bodies on a job and want to…
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like Reel Tidy to do?
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: How do you handle it today?
+      description: Whatever you do now instead — by hand, with another tool, or not at all.
+    validations:
+      required: false
+
+  - type: input
+    id: gear
+    attributes:
+      label: Cameras and cards you use
+      description: Optional, but useful when a request depends on how a particular body writes files.
+      placeholder: "Sony A7 IV and a DJI Mini, CFexpress Type A"
+    validations:
+      required: false

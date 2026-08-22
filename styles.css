@@ -567,6 +567,13 @@ code, kbd, .path, .transform__value, .legend dt {
   font-size: 1.15rem;
 }
 
+.checklist-lede {
+  max-width: 42em;
+  margin: 0 0 14px;
+  color: var(--text-dim);
+  font-size: .95rem;
+}
+
 .checklist {
   max-width: 42em;
   margin: 0;

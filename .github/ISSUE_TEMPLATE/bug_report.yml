@@ -1,0 +1,98 @@
+name: Bug report
+description: Something in Reel Tidy went wrong
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this.
+
+        **This issue will be public.** Please leave out anything personal. Debug logs
+        can contain file paths, folder names, and volume names, so give yours a skim
+        before attaching it. If a report would expose something you would rather keep
+        private, email [james@rischio.studio](mailto:james@rischio.studio) instead.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you do, and what did Reel Tidy do instead of what you expected?
+      placeholder: |
+        I chose my SD card as the source and clicked Import. Partway through…
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: If you can make it happen again, the exact steps help enormously.
+      placeholder: |
+        1. Insert a CFexpress card from a Canon R5
+        2. Choose it as the source
+        3. Turn on "show only new"
+        4. Click Import
+    validations:
+      required: false
+
+  - type: input
+    id: app-version
+    attributes:
+      label: Reel Tidy version
+      description: Shown in the About window — Reel Tidy → About Reel Tidy.
+      placeholder: "1.0 (1)"
+    validations:
+      required: true
+
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version
+      description: Apple menu → About This Mac. Reel Tidy needs macOS 15.7 or later.
+      placeholder: "26.2"
+    validations:
+      required: true
+
+  - type: input
+    id: mac-model
+    attributes:
+      label: Mac model
+      description: Also in About This Mac.
+      placeholder: "MacBook Pro 14-inch, M3 Pro"
+    validations:
+      required: true
+
+  - type: input
+    id: camera
+    attributes:
+      label: Camera and card
+      description: Which body wrote the files, and what kind of card or drive are you importing from?
+      placeholder: "Fujifilm X-T5, SanDisk SD card via built-in reader"
+    validations:
+      required: false
+
+  - type: textarea
+    id: debug-log
+    attributes:
+      label: Debug log
+      description: |
+        Press ⌥⌘L to open the Debug Log window, then use its save button. Drag the file
+        here to attach it. Skim it first — it lists file paths and volume names.
+      placeholder: Drag the saved log file into this box, or paste the relevant part.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: privacy-ack
+    attributes:
+      label: Before you post
+      options:
+        - label: I have checked that this report does not contain anything I want to keep private.
+          required: true

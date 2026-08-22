@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Private support by email
+    url: mailto:james@rischio.studio?subject=Reel%20Tidy%20support
+    about: For anything you would rather not post in public, including logs that contain personal file paths.
+  - name: Questions and setup help
+    url: https://rischio.studio/Reel-Tidy-Support/#support
+    about: How Reel Tidy names and sorts files, and what to include when reporting a problem.
