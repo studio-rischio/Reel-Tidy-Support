@@ -107,6 +107,19 @@ code, kbd, .path, .transform__value, .legend dt {
 .site-header nav a { color: var(--text-dim); text-decoration: none; }
 .site-header nav a:hover { color: var(--yellow); }
 
+/* The store link is the one action in the header, so it reads as a chip. */
+.site-header nav .nav-cta {
+  padding: 5px 13px;
+  border: 1px solid var(--cyan);
+  border-radius: 999px;
+  color: var(--cyan-bright);
+  font-weight: 600;
+}
+.site-header nav .nav-cta:hover {
+  background: var(--cyan);
+  color: #04141B;
+}
+
 /* ---------- hero ---------- */
 
 .hero {
@@ -149,6 +162,26 @@ code, kbd, .path, .transform__value, .legend dt {
   color: var(--text-dim);
 }
 
+/* ---------- App Store badge ----------
+   Apple's artwork, used as supplied. Scale it only by height, never recolor it, and
+   keep clear space around it. Apple's minimum rendered height is 40px. */
+
+.hero__cta {
+  margin: 32px 0 0;
+}
+
+.badge-link {
+  display: inline-block;
+  padding: 6px;            /* clear space, so nothing crowds the badge */
+  border-radius: 10px;
+  line-height: 0;
+}
+
+.badge-link img {
+  width: auto;
+  height: 48px;            /* 156.1 x 40 native, proportions preserved */
+}
+
 /* ---------- buttons ---------- */
 
 .btn {
@@ -188,14 +221,6 @@ code, kbd, .path, .transform__value, .legend dt {
   align-items: center;
 }
 .btn-row .btn { margin-top: 0; }
-
-/* The app is not on the store yet — this state is deliberately not a link. */
-.btn--pending {
-  background: transparent;
-  border-color: var(--line);
-  color: var(--text-dim);
-  cursor: default;
-}
 
 /* ---------- sections ---------- */
 
@@ -649,6 +674,28 @@ kbd {
   /* Stack each slide, text above its window. */
   .carousel__slide { grid-template-columns: 1fr; }
   .carousel.is-ready .carousel__slide { align-content: start; }
+}
+
+/* Three header items overflow a phone; Privacy lives in the footer and is a whole
+   page of its own, so it is the one that goes. */
+@media (max-width: 620px) {
+  .wrap { padding-inline: 18px; }
+  .site-header nav { gap: 14px; font-size: 14px; }
+  .site-header nav .nav-minor { display: none; }
+  .site-header nav .nav-cta { padding: 5px 11px; }
+}
+
+/* Narrower still: drop the wordmark so the icon carries the brand and the store
+   link stays on screen. Hidden visually, not removed — the link keeps its name. */
+@media (max-width: 380px) {
+  .brand__name {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; padding: 0; border: 0;
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 640px) {
